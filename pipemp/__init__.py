@@ -120,7 +120,7 @@ class Pipeline:
         assert len(pipeline_steps)>2
         self.pipeline_steps = pipeline_steps
         self.total_samples = total_samples
-        mp.set_start_method('forkserver')
+
         self.manager = mp.Manager()
     
         self.queues = [self.manager.JoinableQueue(step.size_queue) for step in self.pipeline_steps[:-1]]
